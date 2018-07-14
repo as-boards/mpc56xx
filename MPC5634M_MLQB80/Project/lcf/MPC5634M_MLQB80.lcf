@@ -6,51 +6,45 @@
 
 MEMORY
 {
-    resetvector:           org = 0x00000000,   len = 0x00000008
-    init:		           org = 0x00000020,   len = 0x00000FE0	
-    exception_handlers:    org = 0x00001000,   len = 0x00001000
-    internal_flash:        org = 0x00002000,   len = 0x0017E000
+    init:                  org = 0x00040000,   len = 0x00001000
+    exception_handlers:    org = 0x00041000,   len = 0x00001000
+    internal_flash:        org = 0x00042000,   len = 0x0013E000
     internal_ram:          org = 0x40000000,   len = 0x00014000
     heap  :                org = 0x40014000,   len = 0x00002000 
     stack :                org = 0x40016000,   len = 0x00001800 
 
 }
 
-/* This will ensure the rchw and reset vector are not stripped by the linker */
-FORCEACTIVE { "bam_rchw" "bam_resetvector" }
-
 SECTIONS
 {
-    .__bam_bootarea LOAD (0x00000000): {} > resetvector
-
     GROUP : {
-      .init LOAD (0x00000020) : {}
-      .init_vle (VLECODE) LOAD (_e_init) : {
+      .init  : {}
+      .init_vle (VLECODE) : {
         *(.init)
         *(.init_vle)
       }
     } > init
 
-    .__exception_handlers  (VLECODE) LOAD (0x00001000) : {} > exception_handlers
-
-    GROUP  : {
-      .text : {} 
-      .text_vle (VLECODE) ALIGN(0x08): {
-         *(.text)
-         *(.text_vle)
-       }
-       .rodata (CONST) : {
-         *(.rdata)
-         *(.rodata)
-       }
-       .ctors : {}
-       .dtors : {}
-       extab : {}
-       extabindex : {}
-    } > internal_flash
+    .__exception_handlers (VLECODE): {} > exception_handlers
 
     GROUP : {
-       .__uninitialized_intc_handlertable ALIGN(2048) : {}
+        .text (TEXT) ALIGN(0x10) : {}
+        .text_vle (VLECODE) ALIGN(0x10): {
+             *(.text)
+             *(.text_vle)
+         }
+        .rodata (CONST) : {
+            *(.rdata)
+            *(.rodata)
+        }
+        .ctors : {}
+        .dtors : {}
+        extab : {}
+        extabindex : {}
+    } > internal_flash
+
+    GROUP : {    
+       .__uninitialized_intc_handlertable ALIGN(0x10) : {}
        .data   : {}
        .sdata  : {}
        .sbss   : {}
