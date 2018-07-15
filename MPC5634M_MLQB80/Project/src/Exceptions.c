@@ -36,92 +36,127 @@ void EXCEP_DecrementerHandler(void)
 		mtspr TSR, r0;
 	}
 }
-
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_SystemCallHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_CriticalInputHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_MachineCheckHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_DataStorageHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_InstructionStorageHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_ExternalInputHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_AlignmentHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_ProgramHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_FloatingPointUnavailableHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_AuxiliaryProcessorHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_FixedIntervalTimerHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_WatchDogTimerHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_DataTlbErrorHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_InstructionTlbErrorHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_DebugHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_SPE_APU_UnavailableHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_SPEFloatingPointDataHandler(void)
 {
 	printf("in %s\n", __func__);
 	while(1) __asm("wrteei 0");
 }
+__declspec(interrupt)
+__declspec (section ".__exception_handlers")
 void EXCEP_SPEFloatingPointRoundHandler(void)
 {
 	printf("in %s\n", __func__);

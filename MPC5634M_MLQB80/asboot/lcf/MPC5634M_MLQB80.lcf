@@ -71,7 +71,7 @@ _heap_end   = ADDR(heap)+SIZEOF(heap);
 
 FlashDriverRam = ADDR(flsram);
 FlashHeader = ADDR(flsram);
-application_main = 0x00041110;
+application_main = 0x00040138;
 
 /* Exceptions Handlers Location (used in Exceptions.c IVPR initialization)*/
 
